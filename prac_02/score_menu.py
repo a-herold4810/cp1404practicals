@@ -5,6 +5,7 @@ MENU = """(G)et a valid score
 
 
 def main():
+    """ Program to get valid score, determine status and print the number of stars """
     score = get_valid_score()
     print(MENU)
     choice = input(">>> ").upper()
@@ -24,6 +25,7 @@ def main():
 
 
 def get_valid_score():
+    """ Program to get a valid score """
     score = int(input("Enter score: "))
     while score < 0 or score > 100:
         score = int(input("Enter score: "))
@@ -31,6 +33,7 @@ def get_valid_score():
 
 
 def determine_score_status(score):
+    """ Program to determine the status of a score """
     if score < 0 or score > 100:
         return "Invalid score"
     elif score >= 90:
@@ -42,7 +45,7 @@ def determine_score_status(score):
 
 
 def display_stars(score):
-    """ Print asterisks for the length of the password passed in. """
+    """ Print number of stars equal to the score """
     print("*" * score)
 
 main()
