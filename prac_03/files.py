@@ -5,3 +5,13 @@ out_file = open("name.txt", "w")
 name = input("Enter your name: ")
 out_file.write(name)
 out_file.close()
+
+""" 2. In the same file, but as if it were a separate program, write code that opens "name.txt" and reads the name
+    (as above) then prints (note the exact output),
+    Hi Bob! (or whatever the name is in the file). Do not simply print the user's input variable!
+    Use open and close for this question. """
+
+in_file = open("name.txt", "r")
+name = in_file.read().strip()
+in_file.close()
+print(f"Hi {name}!")
