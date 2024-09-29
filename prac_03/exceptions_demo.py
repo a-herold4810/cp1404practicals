@@ -16,3 +16,6 @@ except ValueError:
 except ZeroDivisionError:
     print("Cannot divide by zero!")
 print("Finished.")
+
+# 1. When a non-integer is entered
+# 2. When the numerator is entered as 0
