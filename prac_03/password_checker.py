@@ -36,7 +36,7 @@ def is_valid_password(password):
     number_of_digit = 0
     number_of_special = 0
     for character in password:
-        # count each kind of character
+        # Count each kind of character
         if character.islower():
             number_of_lower += 1
         elif character.isupper():
@@ -46,7 +46,9 @@ def is_valid_password(password):
         elif character in SPECIAL_CHARACTERS:
             number_of_special += 1
 
-    # TODO: if any of the 'normal' counts are zero, return False
+    # Check if there is at least one of each required type
+    if number_of_lower == 0 or number_of_upper == 0 or number_of_digit == 0:
+        return False
 
     # TODO: if special characters are required, then check the count of those
     # and return False if it's zero
