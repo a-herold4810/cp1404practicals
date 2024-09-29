@@ -8,7 +8,7 @@ Answer the following questions:
 
 try:
     numerator = int(input("Enter the numerator: "))
-    while numerator = 0:
+    while numerator == 0:
         print("Numerator can't be 0!")
         numerator = int(input("Enter the numerator: "))
     denominator = int(input("Enter the denominator: "))
