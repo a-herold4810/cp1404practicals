@@ -17,5 +17,7 @@ for word in words:
     else:
         word_count[word] = 1
 
-for word, count in word_count.items():
+sorted_word_count = dict(sorted(word_count.items()))
+
+for word, count in sorted_word_count.items():
     print(f"{word} : {count}")
