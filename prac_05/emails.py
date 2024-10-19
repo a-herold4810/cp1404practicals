@@ -1,25 +1,31 @@
 """
 Word Occurrences
 Estimate: 30 minutes
-Actual:
+Actual: 27 minutes
 """
 
 def main():
     """ Continuously prompts user for to enter an email address until a blank is entered """
 
-    emails = []
+    email_dict = {}
 
     while True:
         email = input("Email: ")
         if email == "":
             break
-        name = extract_name_from_email(email)
-        print(f"Name: {name}")
-        emails.append(email)
 
-    print("Emails collected:")
-    for email in emails:
-        print(email)
+        name = extract_name_from_email(email)
+
+        correct_name = input(f"Is your name {name}? (Y/n) ").lower()
+
+        if correct_name == "n" or correct_name == "no":
+            name = input("Name: ")
+
+        email_dict[email] = name
+
+    print()
+    for email, name in email_dict.items():
+        print(f"{name} ({email})")
 
 
 def extract_name_from_email(email):
