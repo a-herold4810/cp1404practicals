@@ -4,7 +4,7 @@ Estimate: 25 minutes
 Actual:
 """
 
-text = input("Enter a string: ")
+text = input("Text: ")
 
 words = text.split()
 
@@ -19,5 +19,7 @@ for word in words:
 
 sorted_word_count = dict(sorted(word_count.items()))
 
+max_length = max(len(word) for word in sorted_word_count)
+
 for word, count in sorted_word_count.items():
-    print(f"{word} : {count}")
+    print(f"{word:{max_length}} : {count}")
