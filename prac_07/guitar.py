@@ -6,10 +6,11 @@ Actual:
 Finish Time:
 """
 
+
 class Guitar:
     """ Represent a Guitar object """
 
-    def __init__(self, name="", year=0, cost=0):
+    def __init__(self, name, year, cost=0):
         """ Initialise a Guitar instance with name, year, and cost attributes """
 
         self.name = name
@@ -29,4 +30,10 @@ class Guitar:
 
     def is_vintage(self):
         """ Return True if the guitar is 50 or more years old """
+
         return self.get_age() >= 50
+
+    def __lt__(self, other):
+        """ Compare guitars by year for sorting """
+
+        return self.year < other.year
