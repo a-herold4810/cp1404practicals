@@ -2,8 +2,8 @@
 Guitar
 Estimate: 30 minutes
 Start Time: 2035
-Actual:
-Finish Time:
+Actual: 35
+Finish Time: 2110
 """
 
 
