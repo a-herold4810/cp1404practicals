@@ -24,6 +24,7 @@ def main():
         print("(D)isplay projects by completion")
         print("(F)ilter projects by date")
         print("(A)dd new project")
+        print("(S)ave projects")
         print("(Q)uit")
         choice = input(">>> ").lower()
 
@@ -44,7 +45,12 @@ def main():
             new_project = add_new_project()
             projects.append(new_project)
             print("New project added.")
+        elif choice == 's':
+            save_projects(projects)
+            print("Projects saved.")
         elif choice == 'q':
+            save_projects(projects)
+            print("Projects saved. Goodbye!")
             break
         else:
             print("Invalid choice. Please choose a valid option.")
@@ -90,6 +96,16 @@ def add_new_project():
     cost_estimate = float(input("Cost estimate: "))
     percent_complete = int(input("Percent complete: "))
     return Project(name, start_date, priority, cost_estimate, percent_complete)
+
+
+def save_projects(projects, filename=FILENAME):
+    """ Save a list of Project objects to a file """
+
+    with open(filename, "w") as file:
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tPercent Complete\n")
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t"
+                       f"{project.cost_estimate}\t{project.percent_complete}\n")
 
 
 main()
