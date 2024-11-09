@@ -8,6 +8,7 @@ Finish Time:
 
 import csv
 import datetime
+
 from project import Project
 
 FILENAME = "projects.txt"
@@ -22,6 +23,7 @@ def main():
         print("\nMenu:")
         print("(D)isplay projects by completion")
         print("(F)ilter projects by date")
+        print("(A)dd new project")
         print("(Q)uit")
         choice = input(">>> ").lower()
 
@@ -38,6 +40,10 @@ def main():
             filtered_projects = filter_projects_by_start_date(projects, date)
             print("\nFiltered projects by start date:")
             display_projects(filtered_projects)
+        elif choice == 'a':
+            new_project = add_new_project()
+            projects.append(new_project)
+            print("New project added.")
         elif choice == 'q':
             break
         else:
@@ -73,6 +79,17 @@ def filter_projects_by_start_date(projects, date):
     """ Filter projects that start after the specified date """
 
     return [project for project in projects if project.starts_after(date)]
+
+
+def add_new_project():
+    """ Prompt the user to add a new project and return a Project object """
+
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yyyy): ")
+    priority = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: "))
+    percent_complete = int(input("Percent complete: "))
+    return Project(name, start_date, priority, cost_estimate, percent_complete)
 
 
 main()
