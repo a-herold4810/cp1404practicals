@@ -1,0 +1,43 @@
+BoxLayout:
+    orientation: "vertical"
+
+    # Top section with TextInput and Up/Down buttons
+    BoxLayout:
+        size_hint_y: 0.5
+        orientation: "horizontal"
+
+        # TextInput for miles
+        TextInput:
+            id: input_miles
+            text: "0"
+            multiline: False
+            font_size: 32
+            on_text: app.handle_conversion()
+
+        # Up/Down buttons in a vertical BoxLayout
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_x: 0.3
+
+            Button:
+                text: "Up"
+                on_press: app.handle_increment(1)
+
+            Button:
+                text: "Down"
+                on_press: app.handle_increment(-1)
+
+    # Label for conversion description
+    Label:
+        text: "Convert miles to km"
+        font_size: 24
+        size_hint_y: 0.3
+        color: (1, 1, 1, 1)
+
+    # Label for displaying the output (kilometers)
+    Label:
+        id: output_km
+        text: app.km_output
+        font_size: 48
+        size_hint_y: 0.5
+        color: (1, 1, 0, 1)  # Yellow text
