@@ -1,4 +1,5 @@
 from silver_service_taxi import SilverServiceTaxi
+from taxi import Taxi
 
 def main():
     # Create a SilverServiceTaxi with fanciness of 2
